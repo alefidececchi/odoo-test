@@ -1,11 +1,11 @@
 {
-    'name': "Test",
+    'name': "Alumnos",
     'version': '1.0',
     'depends': ['base'],
     'author': "Alejandro",
     'category': 'Category',
     'description': """
-    Description text
+    Aplicación que lleva el registro de los alumnos de la institución.
     """,
     # data files always loaded at installation
     'data': [
