@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Vista de formulario -->
+    <record id="view_programa_form" model="ir.ui.view">
+        <field name="name">programa.form</field>
+        <field name="model">programa</field>
+        <field name="arch" type="xml">
+            <form string="Programa">
+                <header>
+                    <button string="Crear" special="save"></button>
+                    <button string="Borrar" special="cancel" ></button>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Programa</h1>
+                    </div>
+                    <group>
+                        <field name="nombre" />
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de árbol -->
+    <record id="view_programa_tree" model="ir.ui.view">
+        <field name="name">programa.tree</field>
+        <field name="model">programa</field>
+        <field name="arch" type="xml">
+            <tree string="Programas">
+                <field name="nombre"/>
+                <field name="descripcion" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para lista -->
+    <record id="action_programa_tree" model="ir.actions.act_window">
+        <field name="name">Ver programas</field>
+        <field name="res_model">programa</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_programa_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Programa
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción para formulario -->
+    <record id="action_programa_form" model="ir.actions.act_window">
+        <field name="name">Ver programas</field>
+        <field name="res_model">programa</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_programa_form"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Programa
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_programa_gestion" name="Programas" parent="menu_aden_root" sequence="5"/>
+    <menuitem id="menu_programa_gestion_tree" name="Ver en lista" action="action_programa_tree" parent="menu_programa_gestion" sequence="6"/>
+    <menuitem id="menu_programa_gestion_form" name="Crear Programa" action="action_programa_form" parent="menu_programa_gestion" sequence="7"/>
+</odoo>
