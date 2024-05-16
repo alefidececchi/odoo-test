@@ -7,7 +7,7 @@ class Alumno(models.Model):
     # _log_access
     _register = True
     _description = 'Alumnos'
-    _order = 'alumno.legajo'
+    _order = 'legajo'
 
     nombre = fields.Char(
         string="Nombre",
@@ -22,7 +22,7 @@ class Alumno(models.Model):
         default=None,
         store=True
     )
-    fecha_nacim = fields.Datetime(
+    fecha_nacim = fields.Date(
         string="Fecha de nacimiento",
         required=True,
         default=None,
