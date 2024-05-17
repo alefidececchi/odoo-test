@@ -11,6 +11,7 @@
         'views/menu_aden.xml',
         'views/alumno_view.xml',
         'views/programa_view.xml',
+        'views/inscripcion_view.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

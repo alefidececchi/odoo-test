@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Vista de formulario -->
+    <record id="view_inscripcion_form" model="ir.ui.view">
+        <field name="name">inscripcion.form</field>
+        <field name="model">inscripcion</field>
+        <field name="arch" type="xml">
+            <form string="Inscripción">
+                <header>
+                    <button string="Crear" special="save"></button>
+                    <button string="Borrar" special="cancel" ></button>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Inscripción</h1>
+                    </div>
+                    <group>
+                        <field name="alumno_id" />
+                        <field name="programa_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de árbol -->
+    <record id="view_inscripcion_tree" model="ir.ui.view">
+        <field name="name">inscripcion.tree</field>
+        <field name="model">inscripcion</field>
+        <field name="arch" type="xml">
+            <tree string="Inscripción">
+                <field name="alumno_id"/>
+                <field name="programa_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de search -->
+    <record id="view_inscripcion_search" model="ir.ui.view">
+        <field name="name">Buscar inscripcion</field>
+        <field name="model">inscripcion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="alumno_id"/>
+                <field name="programa_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Accion -->
+    <record id="action_inscripcion" model="ir.actions.act_window">
+        <field name="name">Inscripciones</field>
+        <field name="res_model">inscripcion</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="view_id" ref="view_inscripcion_tree"/>
+        <field name="search_view_id" ref="view_inscripcion_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_inscripcion_gestion" name="Inscripciones" parent="menu_aden_root" sequence="8"/>
+    <menuitem id="menu_inscripcion_gestion_tree" name="Ver inscripciones" action="action_inscripcion" parent="menu_inscripcion_gestion" sequence="9"/>
+</odoo>

@@ -52,7 +52,8 @@ class Alumno(models.Model):
         default=None,
         store=True
     )
-    id_pais = fields.Integer(
+    pais_id = fields.Many2one(
+        'res.country',
         string="ID pais",
         required=True,
         default=None,

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-     <menuitem id="menu_aden_root" name="Aden" action="action_alumno_tree" sequence="1"/>
+     <menuitem id="menu_aden_root" name="Aden" action="action_alumno" sequence="1"/>
 </odoo>
