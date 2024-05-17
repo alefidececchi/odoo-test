@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Vista de formulario -->
+    <record id="view_programa_form" model="ir.ui.view">
+        <field name="name">programa.form</field>
+        <field name="model">programa</field>
+        <field name="arch" type="xml">
+            <form string="Programa">
+                <header>
+                    <button string="Crear" special="save"></button>
+                    <button string="Borrar" special="cancel" ></button>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Programa</h1>
+                    </div>
+                    <group>
+                        <field name="nombre" />
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de árbol -->
+    <record id="view_programa_tree" model="ir.ui.view">
+        <field name="name">programa.tree</field>
+        <field name="model">programa</field>
+        <field name="arch" type="xml">
+            <tree string="Programas">
+                <field name="nombre"/>
+                <field name="descripcion" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de search -->
+    <record id="view_programa_search" model="ir.ui.view">
+        <field name="name">Buscar programa</field>
+        <field name="model">programa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="descripcion" />
+            </search>
+        </field>
+    </record>
+
+    <!-- Accion -->
+    <record id="action_programa" model="ir.actions.act_window">
+        <field name="name">Programas</field>
+        <field name="res_model">programa</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="view_id" ref="view_programa_tree"/>
+        <field name="search_view_id" ref="view_programa_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_programa_gestion" name="Programas" parent="menu_aden_root" sequence="5"/>
+    <menuitem id="menu_programa_gestion_tree" name="Ver programas" action="action_programa" parent="menu_programa_gestion" sequence="6"/>
+</odoo>

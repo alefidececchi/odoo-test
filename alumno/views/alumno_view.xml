@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Vista de formulario -->
+    <record id="view_alumno_form" model="ir.ui.view">
+        <field name="name">alumno.form</field>
+        <field name="model">alumno</field>
+        <field name="arch" type="xml">
+            <form string="Alumno">
+                <header>
+                    <button string="Crear" special="save"></button>
+                    <button string="Borrar" special="cancel" ></button>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            Alumno/a
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="nombre" />
+                        <field name="apellido"/>
+                        <field name="legajo"/>
+                        <field name="email"/>
+                    </group>
+                    <group>
+                        <field name="fecha_nacim" />
+                        <field name="pais_id" />
+                        <field name="direccion" />
+                        <field name="telefono" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de árbol -->
+    <record id="view_alumno_tree" model="ir.ui.view">
+        <field name="name">alumno.tree</field>
+        <field name="model">alumno</field>
+        <field name="arch" type="xml">
+            <tree string="Alumnos">
+                <field name="nombre"/>
+                <field name="apellido"/>
+                <field name="legajo"/>
+                <field name="email"/>
+                <field name="fecha_nacim"/>
+                <field name="pais_id"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de search -->
+    <record id="view_alumno_search" model="ir.ui.view">
+        <field name="name">Buscar alumno</field>
+        <field name="model">alumno</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="apellido"/>
+                <field name="legajo"/>
+                <field name="email"/>
+                <field name="fecha_nacim"/>
+                <field name="pais_id"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Accion -->
+    <record id="action_alumno" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="res_model">alumno</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="view_id" ref="view_alumno_tree"/>
+        <field name="search_view_id" ref="view_alumno_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_alumno_gestion" name="Alumnos" parent="menu_aden_root" sequence="2"/>
+    <menuitem id="menu_alumno_gestion_tree" name="Ver alumnos" action="action_alumno" parent="menu_alumno_gestion" sequence="3"/>
+</odoo>
